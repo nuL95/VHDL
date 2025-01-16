@@ -11,6 +11,6 @@ Compiling package std.standard
 Compiling package std.textio
 Compiling package ieee.std_logic_1164
 Compiling package ieee.numeric_std
-Compiling architecture behavioral of entity xil_defaultlib.shiftReg [shiftreg_default]
+Compiling architecture behavioral of entity xil_defaultlib.shiftReg [\shiftReg(sr_size=5,sr_depth=8)\]
 Compiling architecture behavioral of entity xil_defaultlib.shiftreg_tb
 Built simulation snapshot shiftReg_tb_behav
