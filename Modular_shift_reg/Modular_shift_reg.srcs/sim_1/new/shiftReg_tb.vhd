@@ -37,7 +37,8 @@ signal clk: std_logic := '0';
 signal dat_in: std_logic_vector (7 downto 0) := "00000000";
 signal dat_out: std_logic_vector (7 downto 0);
 type tb_data_array is array (3 downto 0) of std_logic_vector (7 downto 0);
-signal tb_data_block: tb_data_array := ("00000000", "00000001", "10000000", "10101010");
+signal tb_data_block: tb_data_array := ("11111111", "00000001", "10000000", "10101010");
+
 begin
     sr_dut: shiftReg generic map(sr_size => 5, sr_depth => 8) port map (clk =>clk, en=> en, dat_in => dat_in, dat_out => dat_out);
     process begin
