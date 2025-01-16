@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../osci_ipc.gen/sources_1/ip/dds_compiler_0/sim/dds_compiler_0.vhd" \
+"../../../../osci_ipc.srcs/sim_1/new/osci_ipc_tb.vhd" \
+
+# Do not sort compile order
+nosort

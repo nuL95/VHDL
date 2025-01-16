@@ -5,9 +5,6 @@ numSamples = 32;
 t = 0:1/numSamples:1-1/numSamples;
 x = sin(2*pi*t);
 x_scaled = round(x*(2^7 - 1));
-x_bin = int2bit(x_scaled);
+x_bin = dec2bin(x_scaled);
 
-%this function assumes that the argument x is an 8 bit signed integer
-function y = int_to_8bit(x)
-
-end
+abs(fftshift(fft(x_bin));

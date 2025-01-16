@@ -1,0 +1,212 @@
+
+*** Running vivado
+    with args -log dds_compiler_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source dds_compiler_0.tcl
+
+
+
+****** Vivado v2021.2 (64-bit)
+  **** SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
+  **** IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+    ** Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+
+source dds_compiler_0.tcl -notrace
+create_project: Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 1291.574 ; gain = 541.578
+Command: synth_design -top dds_compiler_0 -part xc7k70tfbv676-1 -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7k70t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7k70t'
+INFO: [Device 21-403] Loading part xc7k70tfbv676-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 32296
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1291.574 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'dds_compiler_0' [c:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.gen/sources_1/ip/dds_compiler_0/synth/dds_compiler_0.vhd:69]
+WARNING: [Synth 8-5640] Port 'debug_axi_pinc_in' is missing in component declaration [c:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.gen/sources_1/ip/dds_compiler_0/synth/dds_compiler_0.vhd:72]
+WARNING: [Synth 8-5640] Port 'debug_axi_poff_in' is missing in component declaration [c:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.gen/sources_1/ip/dds_compiler_0/synth/dds_compiler_0.vhd:72]
+WARNING: [Synth 8-5640] Port 'debug_axi_resync_in' is missing in component declaration [c:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.gen/sources_1/ip/dds_compiler_0/synth/dds_compiler_0.vhd:72]
+WARNING: [Synth 8-5640] Port 'debug_axi_chan_in' is missing in component declaration [c:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.gen/sources_1/ip/dds_compiler_0/synth/dds_compiler_0.vhd:72]
+WARNING: [Synth 8-5640] Port 'debug_core_nd' is missing in component declaration [c:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.gen/sources_1/ip/dds_compiler_0/synth/dds_compiler_0.vhd:72]
+WARNING: [Synth 8-5640] Port 'debug_phase' is missing in component declaration [c:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.gen/sources_1/ip/dds_compiler_0/synth/dds_compiler_0.vhd:72]
+WARNING: [Synth 8-5640] Port 'debug_phase_nd' is missing in component declaration [c:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.gen/sources_1/ip/dds_compiler_0/synth/dds_compiler_0.vhd:72]
+	Parameter C_XDEVICEFAMILY bound to: kintex7 - type: string 
+	Parameter C_MODE_OF_OPERATION bound to: 0 - type: integer 
+	Parameter C_MODULUS bound to: 9 - type: integer 
+	Parameter C_ACCUMULATOR_WIDTH bound to: 16 - type: integer 
+	Parameter C_CHANNELS bound to: 1 - type: integer 
+	Parameter C_HAS_PHASE_OUT bound to: 0 - type: integer 
+	Parameter C_HAS_PHASEGEN bound to: 0 - type: integer 
+	Parameter C_HAS_SINCOS bound to: 1 - type: integer 
+	Parameter C_LATENCY bound to: 6 - type: integer 
+	Parameter C_MEM_TYPE bound to: 1 - type: integer 
+	Parameter C_NEGATIVE_COSINE bound to: 0 - type: integer 
+	Parameter C_NEGATIVE_SINE bound to: 0 - type: integer 
+	Parameter C_NOISE_SHAPING bound to: 0 - type: integer 
+	Parameter C_OUTPUTS_REQUIRED bound to: 0 - type: integer 
+	Parameter C_OUTPUT_FORM bound to: 0 - type: integer 
+	Parameter C_OUTPUT_WIDTH bound to: 16 - type: integer 
+	Parameter C_PHASE_ANGLE_WIDTH bound to: 16 - type: integer 
+	Parameter C_PHASE_INCREMENT bound to: 2 - type: integer 
+	Parameter C_PHASE_INCREMENT_VALUE bound to: 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 - type: string 
+	Parameter C_RESYNC bound to: 0 - type: integer 
+	Parameter C_PHASE_OFFSET bound to: 0 - type: integer 
+	Parameter C_PHASE_OFFSET_VALUE bound to: 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 - type: string 
+	Parameter C_OPTIMISE_GOAL bound to: 0 - type: integer 
+	Parameter C_USE_DSP48 bound to: 0 - type: integer 
+	Parameter C_POR_MODE bound to: 0 - type: integer 
+	Parameter C_AMPLITUDE bound to: 0 - type: integer 
+	Parameter C_HAS_ACLKEN bound to: 0 - type: integer 
+	Parameter C_HAS_ARESETN bound to: 0 - type: integer 
+	Parameter C_HAS_TLAST bound to: 0 - type: integer 
+	Parameter C_HAS_TREADY bound to: 0 - type: integer 
+	Parameter C_HAS_S_PHASE bound to: 1 - type: integer 
+	Parameter C_S_PHASE_TDATA_WIDTH bound to: 16 - type: integer 
+	Parameter C_S_PHASE_HAS_TUSER bound to: 0 - type: integer 
+	Parameter C_S_PHASE_TUSER_WIDTH bound to: 1 - type: integer 
+	Parameter C_HAS_S_CONFIG bound to: 0 - type: integer 
+	Parameter C_S_CONFIG_SYNC_MODE bound to: 0 - type: integer 
+	Parameter C_S_CONFIG_TDATA_WIDTH bound to: 1 - type: integer 
+	Parameter C_HAS_M_DATA bound to: 1 - type: integer 
+	Parameter C_M_DATA_TDATA_WIDTH bound to: 16 - type: integer 
+	Parameter C_M_DATA_HAS_TUSER bound to: 0 - type: integer 
+	Parameter C_M_DATA_TUSER_WIDTH bound to: 1 - type: integer 
+	Parameter C_HAS_M_PHASE bound to: 0 - type: integer 
+	Parameter C_M_PHASE_TDATA_WIDTH bound to: 1 - type: integer 
+	Parameter C_M_PHASE_HAS_TUSER bound to: 0 - type: integer 
+	Parameter C_M_PHASE_TUSER_WIDTH bound to: 1 - type: integer 
+	Parameter C_DEBUG_INTERFACE bound to: 0 - type: integer 
+	Parameter C_CHAN_WIDTH bound to: 1 - type: integer 
+INFO: [Synth 8-3491] module 'dds_compiler_v6_0_21' declared at 'c:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.gen/sources_1/ip/dds_compiler_0/hdl/dds_compiler_v6_0_vh_rfs.vhd:47308' bound to instance 'U0' of component 'dds_compiler_v6_0_21' [c:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.gen/sources_1/ip/dds_compiler_0/synth/dds_compiler_0.vhd:174]
+INFO: [Synth 8-256] done synthesizing module 'dds_compiler_0' (7#1) [c:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.gen/sources_1/ip/dds_compiler_0/synth/dds_compiler_0.vhd:69]
+WARNING: [Synth 8-7129] Port CLK in module xbip_pipe_v3_0_6_viv__parameterized14 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port CE in module xbip_pipe_v3_0_6_viv__parameterized14 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SCLR in module xbip_pipe_v3_0_6_viv__parameterized14 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SSET in module xbip_pipe_v3_0_6_viv__parameterized14 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SINIT in module xbip_pipe_v3_0_6_viv__parameterized14 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port CLK in module xbip_pipe_v3_0_6_viv__parameterized12 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port CE in module xbip_pipe_v3_0_6_viv__parameterized12 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SCLR in module xbip_pipe_v3_0_6_viv__parameterized12 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SSET in module xbip_pipe_v3_0_6_viv__parameterized12 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SINIT in module xbip_pipe_v3_0_6_viv__parameterized12 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SCLR in module xbip_pipe_v3_0_6_viv__parameterized8 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SSET in module xbip_pipe_v3_0_6_viv__parameterized8 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SINIT in module xbip_pipe_v3_0_6_viv__parameterized8 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SCLR in module xbip_pipe_v3_0_6_viv__parameterized10 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SSET in module xbip_pipe_v3_0_6_viv__parameterized10 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SINIT in module xbip_pipe_v3_0_6_viv__parameterized10 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SCLR in module xbip_pipe_v3_0_6_viv__parameterized6 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SSET in module xbip_pipe_v3_0_6_viv__parameterized6 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SINIT in module xbip_pipe_v3_0_6_viv__parameterized6 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SCLR in module xbip_pipe_v3_0_6_viv__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SSET in module xbip_pipe_v3_0_6_viv__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SINIT in module xbip_pipe_v3_0_6_viv__parameterized4 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SCLR in module sin_cos is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SCLR in module xbip_pipe_v3_0_6_viv__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SSET in module xbip_pipe_v3_0_6_viv__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SINIT in module xbip_pipe_v3_0_6_viv__parameterized2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port RFD in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port COSINE[15] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port COSINE[14] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port COSINE[13] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port COSINE[12] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port COSINE[11] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port COSINE[10] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port COSINE[9] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port COSINE[8] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port COSINE[7] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port COSINE[6] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port COSINE[5] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port COSINE[4] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port COSINE[3] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port COSINE[2] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port COSINE[1] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port COSINE[0] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ADDR[0] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port REG_SELECT in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SCLR in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port WE in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DATA[15] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DATA[14] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DATA[13] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DATA[12] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DATA[11] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DATA[10] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DATA[9] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DATA[8] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DATA[7] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DATA[6] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DATA[5] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DATA[4] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DATA[3] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DATA[2] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DATA[1] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port DATA[0] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PINC_IN[15] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PINC_IN[14] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PINC_IN[13] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PINC_IN[12] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PINC_IN[11] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PINC_IN[10] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PINC_IN[9] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PINC_IN[8] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PINC_IN[7] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PINC_IN[6] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PINC_IN[5] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PINC_IN[4] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PINC_IN[3] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PINC_IN[2] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PINC_IN[1] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port PINC_IN[0] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port POFF_IN[15] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port POFF_IN[14] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port POFF_IN[13] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port POFF_IN[12] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port POFF_IN[11] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port POFF_IN[10] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port POFF_IN[9] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port POFF_IN[8] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port POFF_IN[7] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port POFF_IN[6] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port POFF_IN[5] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port POFF_IN[4] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port POFF_IN[3] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port POFF_IN[2] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port POFF_IN[1] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port POFF_IN[0] in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port RESYNC_IN in module dds_compiler_v6_0_21_core is either unconnected or has no load
+WARNING: [Synth 8-7129] Port CE in module xbip_pipe_v3_0_6_viv__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SSET in module xbip_pipe_v3_0_6_viv__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SINIT in module xbip_pipe_v3_0_6_viv__parameterized0 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port SSET in module xbip_pipe_v3_0_6_viv is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1291.574 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1291.574 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1291.574 ; gain = 0.000
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1291.574 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [c:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.gen/sources_1/ip/dds_compiler_0/dds_compiler_0_ooc.xdc] for cell 'U0'
+Finished Parsing XDC File [c:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.gen/sources_1/ip/dds_compiler_0/dds_compiler_0_ooc.xdc] for cell 'U0'
+Parsing XDC File [C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.runs/dds_compiler_0_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.runs/dds_compiler_0_synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1291.574 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.107 . Memory (MB): peak = 1291.574 ; gain = 0.000
+Abnormal program termination (EXCEPTION_ACCESS_VIOLATION)
+Please check 'C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.runs/dds_compiler_0_synth_1/hs_err_pid23112.log' for details
