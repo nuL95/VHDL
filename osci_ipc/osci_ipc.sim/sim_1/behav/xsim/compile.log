@@ -1,0 +1,4 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.gen/sources_1/ip/dds_compiler_0/sim/dds_compiler_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'dds_compiler_0'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.srcs/sim_1/new/osci_ipc_tb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'osci_ipc_tb'

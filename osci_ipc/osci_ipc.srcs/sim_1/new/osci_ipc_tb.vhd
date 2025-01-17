@@ -38,21 +38,21 @@ end osci_ipc_tb;
 
 architecture Behavioral of osci_ipc_tb is
 signal clk : std_logic := '0';
-signal osci_out : std_logic_vector (15 downto 0);
-signal osci_phase_valid : std_logic := '0';
-signal osci_phase_in: std_logic_vector (15 downto 0) := "0000000000000001";
-signal dat_valid: std_logic;
+signal    m_axis_data_tvalid : STD_LOGIC;
+signal    m_axis_data_tdata : STD_LOGIC_VECTOR(15 DOWNTO 0);
+signal    m_axis_phase_tvalid : STD_LOGIC;
+signal    m_axis_phase_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0);
 component dds_compiler_0
   PORT (
     aclk : IN STD_LOGIC;
-    s_axis_phase_tvalid : IN STD_LOGIC;
-    s_axis_phase_tdata : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     m_axis_data_tvalid : OUT STD_LOGIC;
-    m_axis_data_tdata : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
+    m_axis_data_tdata : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+    m_axis_phase_tvalid : OUT STD_LOGIC;
+    m_axis_phase_tdata : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
   );
 end component;
 begin
-oscillator: dds_compiler_0 port map(aclk => clk, s_axis_phase_tvalid => osci_phase_valid, s_axis_phase_tdata=> osci_phase_in, m_axis_data_tdata=> osci_out, m_axis_data_tvalid => dat_valid);
+oscillator: dds_compiler_0 port map(aclk => clk, m_axis_data_tvalid=>m_axis_data_tvalid,m_axis_data_tdata=>m_axis_data_tdata,m_axis_phase_tvalid=>m_axis_phase_tvalid, m_axis_phase_tdata=>m_axis_phase_tdata );
 
 dut: process
 begin
@@ -60,6 +60,6 @@ wait for 1000 ns;
 end process;
 process(clk)
 begin
-clk <= not clk after 50 ns;
+clk <= not clk after 5 ns;
 end process;
 end Behavioral;
