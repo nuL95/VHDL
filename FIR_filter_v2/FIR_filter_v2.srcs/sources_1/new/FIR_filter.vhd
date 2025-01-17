@@ -8,7 +8,7 @@
 -- Project Name: FIR Filter
 -- Target Devices: 
 -- Tool Versions: 
--- Description: First attempt at making an FIR filter module
+-- Description: An FIR filter module with transversal topology
 -- 
 -- Dependencies: 
 -- 

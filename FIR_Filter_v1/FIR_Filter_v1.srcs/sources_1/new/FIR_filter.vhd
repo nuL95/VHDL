@@ -8,7 +8,7 @@
 -- Project Name: FIR Filter
 -- Target Devices: 
 -- Tool Versions: 
--- Description: First attempt at making an FIR filter module
+-- Description: Attempt at making an FIR filter module using transpose topology.
 -- 
 -- Dependencies: 
 -- 
@@ -33,27 +33,22 @@ type f_tap_mem is array (3 downto 0) of signed (7 downto 0);
 constant filter_taps: f_tap_mem := ("00000101","00000001","11101001","00001001");
 type f_reg is array (3 downto 0) of signed (7 downto 0);
 signal filter_regs: f_reg := (others=>(others=>'0'));
-signal MAC: signed( 15 downto 0) := (others=> '0');
+type output_registers is array (3 downto 0) of signed (15 downto 0);
+signal out_regs: output_registers := (others=>(others=>'0'));
+type m_regs is array (3 downto 0) of signed( 15 downto 0);
+signal mult_regs: m_regs := (others=>(others=>'0'));
 begin
-dat_out <= MAC(9 downto 0);
-shift_reg: process(clk)
-    begin
-        if rising_edge(clk) then
-            if en = '1' then
-                filter_regs <= filter_regs(2 downto 0) & dat_in;
-            end if;
-        end if;
-    end process;
+dat_out <= out_regs(0)(9 downto 0);
 MAC_op: process (clk)
-variable MAC_var: signed (15 downto 0);
     begin
-        MAC_var := (others => '0');
         if rising_edge(clk) then
             if en = '1' then
-                for n in 0 to 3 loop
-                    MAC_var := MAC_var + filter_taps(n)*filter_regs(n);
+                for n in 0 to 2 loop
+                    filter_regs(n) <= dat_in;
+                    mult_regs(n) <= filter_taps(n)*filter_regs(n);
+                    out_regs(n) <= mult_regs(n)+out_regs(n+1);
                 end loop;
-                MAC <= MAC_var;
+                out_regs(out_regs'high) <= mult_regs(out_regs'high);
             end if;
         end if;
     end process;
