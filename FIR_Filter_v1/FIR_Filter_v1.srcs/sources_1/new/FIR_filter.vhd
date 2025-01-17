@@ -33,9 +33,9 @@ type f_tap_mem is array (3 downto 0) of signed (7 downto 0);
 constant filter_taps: f_tap_mem := ("00000101","00000001","11101001","00001001");
 type f_reg is array (3 downto 0) of signed (7 downto 0);
 signal filter_regs: f_reg := (others=>(others=>'0'));
-signal MAC_out: signed( 15 downto 0) := (others=> '0');
+signal MAC: signed( 15 downto 0) := (others=> '0');
 begin
-dat_out <= MAC_out(9 downto 0);
+dat_out <= MAC(9 downto 0);
 shift_reg: process(clk)
     begin
         if rising_edge(clk) then
@@ -45,10 +45,15 @@ shift_reg: process(clk)
         end if;
     end process;
 MAC_op: process (clk)
+variable MAC_var: signed (15 downto 0);
     begin
+        MAC_var := (others => '0');
         if rising_edge(clk) then
             if en = '1' then
-                MAC_out <= filter_taps(0)*filter_regs(0)+filter_taps(1)*filter_regs(1)+filter_taps(2)*filter_regs(2)+filter_taps(3)*filter_regs(3);
+                for n in 0 to 3 loop
+                    MAC_var := MAC_var + filter_taps(n)*filter_regs(n);
+                end loop;
+                MAC <= MAC_var;
             end if;
         end if;
     end process;
