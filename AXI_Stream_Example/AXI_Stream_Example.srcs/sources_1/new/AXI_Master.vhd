@@ -68,8 +68,7 @@ begin
                         else
                             m_axis_t_last <= '0';
                         end if;
-                    end if;
-                    if m_axis_t_ready = '0' then
+                    else -- get rid of this statement and turn this into an else clause
                     status <= IDLE;
                     end if;
             end case;

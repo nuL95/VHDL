@@ -12,5 +12,6 @@ Compiling package std.textio
 Compiling package ieee.std_logic_1164
 Compiling package ieee.numeric_bit
 Compiling architecture behavioral of entity xil_defaultlib.AXI_Master [axi_master_default]
+Compiling architecture behavioral of entity xil_defaultlib.AXI_Slave [axi_slave_default]
 Compiling architecture behavioral of entity xil_defaultlib.axi_stream_tb
 Built simulation snapshot AXI_stream_tb_behav
