@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../FIR_filter_IPC.gen/sources_1/ip/fir_compiler_0/sim/fir_compiler_0.vhd" \
+"../../../../FIR_filter_IPC.srcs/sim_1/new/FIR_filter_IPC_TB.vhd" \
+
+# Do not sort compile order
+nosort
