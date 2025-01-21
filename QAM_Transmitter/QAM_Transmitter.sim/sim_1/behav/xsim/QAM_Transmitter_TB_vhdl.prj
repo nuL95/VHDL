@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../QAM_Transmitter.srcs/sources_1/new/file_read.vhd" \
+"../../../../QAM_Transmitter.srcs/sim_1/new/QAM_Transmitter_TB.vhd" \
+
+# Do not sort compile order
+nosort
