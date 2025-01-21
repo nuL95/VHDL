@@ -13,5 +13,6 @@ Compiling package ieee.std_logic_1164
 Compiling package ieee.numeric_std
 Compiling package ieee.std_logic_textio
 Compiling architecture behavioral of entity xil_defaultlib.file_read [\file_read(file_name="bitstream....]
+Compiling architecture behavioral of entity xil_defaultlib.file_write [\file_write(file_name="output_te...]
 Compiling architecture behavioral of entity xil_defaultlib.fifo_tb
 Built simulation snapshot FIFO_TB_behav
