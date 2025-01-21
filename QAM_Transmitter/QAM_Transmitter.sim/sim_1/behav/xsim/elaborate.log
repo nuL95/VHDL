@@ -13,5 +13,6 @@ Compiling package ieee.std_logic_1164
 Compiling package ieee.numeric_std
 Compiling package ieee.std_logic_textio
 Compiling architecture behavioral of entity xil_defaultlib.file_read [\file_read(file_name="bitstream....]
+Compiling architecture behavioral of entity xil_defaultlib.QAM4_Modulator [qam4_modulator_default]
 Compiling architecture behavioral of entity xil_defaultlib.qam_transmitter_tb
 Built simulation snapshot QAM_Transmitter_TB_behav

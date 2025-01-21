@@ -8,7 +8,7 @@
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
--- Description: Reads a file using the generic file_name, the file should be binary with one number per line, one bit per clock cycle is read and passed to data_out. Only passes on bit when ready and valid ports are '1'.
+-- Description: Reads a file using the generic file_name, the file should be binary with one number per line, two bits per clock cycle is read and passed to data_out. Only passes on bit when ready and valid ports are '1'.
 -- 
 -- Dependencies: 
 -- 
