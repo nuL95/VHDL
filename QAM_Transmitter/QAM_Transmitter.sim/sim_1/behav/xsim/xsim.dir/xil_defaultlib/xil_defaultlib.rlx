@@ -2,6 +2,7 @@
 2020.2
 Oct 19 2021
 03:16:22
-C:/Users/Mark/Desktop/review/VHDL/QAM_Transmitter/QAM_Transmitter.srcs/sim_1/new/QAM_Transmitter_TB.vhd,1737498562,vhdl,,,,qam_transmitter_tb,,,,,,,,
-C:/Users/Mark/Desktop/review/VHDL/QAM_Transmitter/QAM_Transmitter.srcs/sources_1/new/QAM4_Modulator.vhd,1737497224,vhdl,,,,qam4_modulator,,,,,,,,
-C:/Users/Mark/Desktop/review/VHDL/QAM_Transmitter/QAM_Transmitter.srcs/sources_1/new/file_read.vhd,1737492739,vhdl,,,,file_read,,,,,,,,
+C:/Users/Mark/Desktop/review/VHDL/QAM_Transmitter/QAM_Transmitter.srcs/sim_1/new/QAM_Transmitter_TB.vhd,1737584454,vhdl,,,,qam_transmitter_tb,,,,,,,,
+C:/Users/Mark/Desktop/review/VHDL/QAM_Transmitter/QAM_Transmitter.srcs/sources_1/new/QAM4_Modulator.vhd,1737581615,vhdl,,,,qam4_modulator,,,,,,,,
+C:/Users/Mark/Desktop/review/VHDL/QAM_Transmitter/QAM_Transmitter.srcs/sources_1/new/Upsampler.vhd,1737585136,vhdl,,,,upsampler,,,,,,,,
+C:/Users/Mark/Desktop/review/VHDL/QAM_Transmitter/QAM_Transmitter.srcs/sources_1/new/file_read.vhd,1737576957,vhdl,,,,file_read,,,,,,,,

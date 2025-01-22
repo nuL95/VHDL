@@ -11,14 +11,14 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="1,000.001 ns"></ZoomEndTime>
-      <Cursor1Time time="24.737 ns"></Cursor1Time>
+      <ZoomEndTime time="2,000.001 ns"></ZoomEndTime>
+      <Cursor1Time time="0.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="370"></NameColumnWidth>
-      <ValueColumnWidth column_width="182"></ValueColumnWidth>
+      <ValueColumnWidth column_width="178"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="10" />
+   <WVObjectSize size="14" />
    <wvobject fp_name="/QAM_Transmitter_TB/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -67,5 +67,21 @@
    <wvobject fp_name="/QAM_Transmitter_TB/UPS_s_axis_t_ready" type="logic">
       <obj_property name="ElementShortName">UPS_s_axis_t_ready</obj_property>
       <obj_property name="ObjectShortName">UPS_s_axis_t_ready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/QAM_Transmitter_TB/UPS_m_axis_t_valid" type="logic">
+      <obj_property name="ElementShortName">UPS_m_axis_t_valid</obj_property>
+      <obj_property name="ObjectShortName">UPS_m_axis_t_valid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/QAM_Transmitter_TB/UPS_m_axis_t_ready" type="logic">
+      <obj_property name="ElementShortName">UPS_m_axis_t_ready</obj_property>
+      <obj_property name="ObjectShortName">UPS_m_axis_t_ready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/QAM_Transmitter_TB/UPS_s_axis_t_ready" type="logic">
+      <obj_property name="ElementShortName">UPS_s_axis_t_ready</obj_property>
+      <obj_property name="ObjectShortName">UPS_s_axis_t_ready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/QAM_Transmitter_TB/UPS_m_axis_t_data" type="array">
+      <obj_property name="ElementShortName">UPS_m_axis_t_data[15:0]</obj_property>
+      <obj_property name="ObjectShortName">UPS_m_axis_t_data[15:0]</obj_property>
    </wvobject>
 </wave_config>

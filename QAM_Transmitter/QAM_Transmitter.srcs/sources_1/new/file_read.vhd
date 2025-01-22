@@ -33,32 +33,44 @@ entity file_read is
 end file_read;
 
 architecture Behavioral of file_read is
-    signal m_axis_t_valid_signal: std_logic;
+    signal m_axis_t_valid_int: std_logic;
+    type t_state is (IDLE, ACTIVE);
+    signal status: t_state;
 begin
-    m_axis_t_valid <= m_axis_t_valid_signal;
-    process(clk, rst)
+    m_axis_t_valid <= m_axis_t_valid_int;
+    process(clk)
         file source_file : text open read_mode is
  file_name;
         variable row : line;
         variable data_in : std_logic_vector (1 downto 0); -- Should be appropriate data type, ex signed (15 downto 0)
     begin
         if rst = '1' then
+            status <= IDLE;
+            m_axis_t_valid_int <= '0';
         --im actually not sure how to reset, what I would like is for source_file to go back to the beginning of file_name, I'm not sure how to write this. I'm a little confused how endfile works, i thought that 
         --source_file was the entire file, and the line being read is row, so why does endfile only need source_file and not row?
         elsif rising_edge(clk) then
-            if m_axis_t_ready = '1' then
-                if not endfile(source_file) then
-                    readline (source_file, row);
-                    read(row, data_in(1));
-                end if;
-                if not endfile(source_file) then
-                    readline (source_file, row);
-                    read(row, data_in(0));
-                    m_axis_t_valid_signal <= '1';
-                else m_axis_t_valid_signal <= '0';
-                end if;
-                data_out <= data_in;
-            end if;
+            case status is
+                when IDLE =>
+                    m_axis_t_valid_int <= '0';
+                    if m_axis_t_ready  = '1' and not endfile(source_file) then
+                        status <= ACTIVE;
+                    end if;
+                when ACTIVE =>
+                    m_axis_t_valid_int <= '1';
+                    if not endfile(source_file) then
+                        readline (source_file, row);
+                        read(row, data_in(1));
+                    end if;
+                    if not endfile(source_file) then
+                        readline (source_file, row);
+                        read(row, data_in(0));
+                    end if;
+                    data_out <= data_in;
+                    if m_axis_t_ready = '0' or endfile(source_file) then
+                        status <= IDLE;
+                    end if;
+            end case;
         end if;
     end process;
 end Behavioral;
