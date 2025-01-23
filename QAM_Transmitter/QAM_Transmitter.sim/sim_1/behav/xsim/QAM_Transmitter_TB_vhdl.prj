@@ -1,8 +1,10 @@
 # compile vhdl design source files
 vhdl xil_defaultlib  \
-"../../../../QAM_Transmitter.srcs/sources_1/new/QAM4_Modulator.vhd" \
-"../../../../QAM_Transmitter.srcs/sources_1/new/Upsampler.vhd" \
+"../../../../QAM_Transmitter.gen/sources_1/ip/SINCOS_GEN/sim/SINCOS_GEN.vhd" \
+"../../../../QAM_Transmitter.gen/sources_1/ip/SRRC_Filter/sim/SRRC_Filter.vhd" \
 "../../../../QAM_Transmitter.srcs/sources_1/new/file_read.vhd" \
+"../../../../QAM_Transmitter.srcs/sources_1/new/file_sink.vhd" \
+"../../../../QAM_Transmitter.srcs/sources_1/new/mixer.vhd" \
 "../../../../QAM_Transmitter.srcs/sim_1/new/QAM_Transmitter_TB.vhd" \
 
 # Do not sort compile order

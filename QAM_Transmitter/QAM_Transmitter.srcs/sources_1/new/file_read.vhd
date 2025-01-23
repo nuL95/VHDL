@@ -28,13 +28,13 @@ use IEEE.std_logic_textio.all;
 
 
 entity file_read is
-    generic (file_name: string);
-    Port (clk, rst, m_axis_t_ready: in std_logic; m_axis_t_valid: out std_logic; data_out: out std_logic_vector (1 downto 0)); -- data_out should be the appropriate data type, so for a 16 bit number it will be signed (15 downto 0)
+    generic (file_name: string; upsample_rate: integer);
+    Port (clk, rst, m_axis_t_ready: in std_logic; m_axis_t_valid: out std_logic; data_out_I, data_out_Q: out std_logic_vector (15 downto 0));
 end file_read;
 
 architecture Behavioral of file_read is
     signal m_axis_t_valid_int: std_logic;
-    type t_state is (IDLE, ACTIVE);
+    type t_state is (IDLE, ACTIVE, ACTIVE0);
     signal status: t_state;
 begin
     m_axis_t_valid <= m_axis_t_valid_int;
@@ -43,20 +43,31 @@ begin
  file_name;
         variable row : line;
         variable data_in : std_logic_vector (1 downto 0); -- Should be appropriate data type, ex signed (15 downto 0)
+        variable counter : unsigned (4 downto 0);
     begin
         if rst = '1' then
             status <= IDLE;
             m_axis_t_valid_int <= '0';
-        --im actually not sure how to reset, what I would like is for source_file to go back to the beginning of file_name, I'm not sure how to write this. I'm a little confused how endfile works, i thought that 
-        --source_file was the entire file, and the line being read is row, so why does endfile only need source_file and not row?
+            counter := (others => '0');
         elsif rising_edge(clk) then
             case status is
                 when IDLE =>
                     m_axis_t_valid_int <= '0';
                     if m_axis_t_ready  = '1' and not endfile(source_file) then
+                        status <= ACTIVE0;
+                    end if;
+                when ACTIVE0 =>
+                    counter := counter + 1;
+                    if counter = upsample_rate-1 then
                         status <= ACTIVE;
                     end if;
+                    data_out_I <= (others => '0');
+                    data_out_Q <= (others => '0');
+                    if m_axis_t_ready = '0' then
+                        status <= IDLE;
+                    end if;
                 when ACTIVE =>
+                    counter := (others => '0');
                     m_axis_t_valid_int <= '1';
                     if not endfile(source_file) then
                         readline (source_file, row);
@@ -66,9 +77,19 @@ begin
                         readline (source_file, row);
                         read(row, data_in(0));
                     end if;
-                    data_out <= data_in;
-                    if m_axis_t_ready = '0' or endfile(source_file) then
+                    if data_in(0) = '0' then
+                        data_out_Q <= "0000000001000000"; --this is the integer 1 in the specified 16-bit format
+                    else
+                        data_out_Q <= "1111111111000000"; --this is the integer -1 in the specified 16-bit format
+                    end if;
+                    if data_in(1) = '0' then
+                        data_out_I <="0000000001000000" ;
+                    else
+                        data_out_I <= "1111111111000000";
+                    end if;
+                    if endfile(source_file) then
                         status <= IDLE;
+                    else status <= ACTIVE0;
                     end if;
             end case;
         end if;

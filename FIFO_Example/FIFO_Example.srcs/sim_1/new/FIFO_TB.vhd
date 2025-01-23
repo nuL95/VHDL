@@ -37,9 +37,9 @@ architecture Behavioral of FIFO_TB is
     signal m_axis_t_valid : std_logic;
     signal in_test: std_logic;
     --test signals for file write
-    type mem is array (9 downto 0) of std_logic_vector (15 downto 0);
-    constant dat_bank : mem :=(x"6431",x"5613",x"0111",x"011D",x"0000",x"4521",x"AB32",x"F213",x"0124",x"00FF");
-    signal write_test_vector: std_logic_vector (15 downto 0);
+    type mem is array (9 downto 0) of std_logic_vector (31 downto 0);
+    constant dat_bank : mem :=(x"00006431",x"00005613",x"00000111",x"0000011D",x"00000000",x"00004521",x"0000AB32",x"0000F213",x"00000124",x"000000FF");
+    signal write_test_vector: std_logic_vector (31 downto 0);
     signal s_axis_t_ready: std_logic;
     signal s_axis_t_valid : std_logic := '1';
 
@@ -50,7 +50,7 @@ architecture Behavioral of FIFO_TB is
     end component;
     component file_write
         generic (file_name: string);
-        Port (clk, rst: in std_logic; s_axis_t_valid: in std_logic; data_in: std_logic_vector(15 downto 0);s_axis_t_ready: out std_logic; data_out: out std_logic_vector(15 downto 0));
+        Port (clk, rst: in std_logic; s_axis_t_valid: in std_logic; data_in: std_logic_vector(31 downto 0);s_axis_t_ready: out std_logic; data_out: out std_logic_vector(31 downto 0));
     end component;
 begin
     dut_read: file_read generic map (file_name => "bitstream.txt")

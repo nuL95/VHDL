@@ -1,0 +1,4 @@
+Running: xsim.dir/QAM_Transmitter_TB_behav/xsimk.exe -simmode gui -wdb QAM_Transmitter_TB_behav.wdb -simrunnum 0 -socket 56157
+Design successfully loaded
+Design Loading Memory Usage: 15756 KB (Peak: 15756 KB)
+Design Loading CPU Usage: 15 ms

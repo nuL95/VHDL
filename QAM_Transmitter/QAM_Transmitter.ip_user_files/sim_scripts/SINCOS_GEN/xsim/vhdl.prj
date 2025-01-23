@@ -1,0 +1,4 @@
+vhdl xil_defaultlib  \
+"../../../../QAM_Transmitter.gen/sources_1/ip/SINCOS_GEN/sim/SINCOS_GEN.vhd" \
+
+nosort

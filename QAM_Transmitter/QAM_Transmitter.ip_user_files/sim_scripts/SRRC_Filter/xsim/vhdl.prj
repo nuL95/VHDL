@@ -1,0 +1,4 @@
+vhdl xil_defaultlib  \
+"../../../../QAM_Transmitter.gen/sources_1/ip/SRRC_Filter/sim/SRRC_Filter.vhd" \
+
+nosort

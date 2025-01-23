@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Thu Jan 23 10:40:56 2025
+# Process ID: 35604
+# Current directory: C:/Users/Mark/Desktop/review/VHDL/QAM_Transmitter/QAM_Transmitter.runs/SINCOS_GEN_synth_1
+# Command line: vivado.exe -log SINCOS_GEN.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source SINCOS_GEN.tcl
+# Log file: C:/Users/Mark/Desktop/review/VHDL/QAM_Transmitter/QAM_Transmitter.runs/SINCOS_GEN_synth_1/SINCOS_GEN.vds
+# Journal file: C:/Users/Mark/Desktop/review/VHDL/QAM_Transmitter/QAM_Transmitter.runs/SINCOS_GEN_synth_1\vivado.jou
+# Running On: DESKTOP-IIQHOR6, OS: Windows, CPU Frequency: 3800 MHz, CPU Physical cores: 16, Host memory: 34282 MB
+#-----------------------------------------------------------
+source SINCOS_GEN.tcl -notrace

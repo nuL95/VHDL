@@ -28,7 +28,7 @@ use IEEE.std_logic_textio.all;
 --data_out is not needed, but is currently here for testing purposes only.
 entity file_write is
     generic (file_name: string);
-    Port (clk, rst: in std_logic; s_axis_t_valid: in std_logic; data_in: std_logic_vector(15 downto 0);s_axis_t_ready: out std_logic; data_out: out std_logic_vector(15 downto 0));
+    Port (clk, rst: in std_logic; s_axis_t_valid: in std_logic; data_in: std_logic_vector(31 downto 0);s_axis_t_ready: out std_logic; data_out: out std_logic_vector(31 downto 0));
 end file_write;
 
 architecture Behavioral of file_write is
