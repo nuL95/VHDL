@@ -1,0 +1,31 @@
+Fs = 500e6;
+Fc = 100e6;
+sps = 6;
+bits = importdata("bitstream.txt");
+[syms_I, syms_Q] = qam4(bits);
+syms_I = upsample(syms_I,sps);
+syms_Q = upsample(syms_Q,sps);
+nyq_fil = rcosdesign(0.4,8,sps,"sqrt");
+syms_p_I = filter(nyq_fil,1,syms_I);
+syms_p_Q = filter(nyq_fil,1,syms_Q);
+
+
+
+function [syms_I, syms_Q] = qam4(x)
+    syms_I = zeros(1,length(x)/2);
+    syms_Q = zeros(1,length(x)/2);
+    x_I = x(1:2:end);
+    x_Q = x(2:2:end);
+    for ii = 1:length(x)/2
+        if x_Q(ii) == 1
+            syms_Q(ii) = -1;
+        else
+            syms_Q(ii) = 1;
+        end
+        if x_I(ii) == 1
+            syms_I(ii) = -1;
+        else
+            syms_I(ii) = 1;
+        end
+    end
+end
