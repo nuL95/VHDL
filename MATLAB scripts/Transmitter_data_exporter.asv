@@ -1,0 +1,10 @@
+%%Author: Mark Blair
+%Takes the data from transmitted_simulated_data_path and puts it into
+%signed fixed binary 16 bits with binary point of 13
+clear;
+close;
+rx = importdata("rx.mat");
+
+for ii = 1:length(rx)
+    
+end

@@ -1,3 +1,7 @@
+%%Author: Mark Blair
+%Simulated datapath of VHDL transmitter, also takes data from VHDL
+%transmitter and adds noise and channel distortion
+
 fs = 500e6;
 fc = 100e6;
 sps = 6;
@@ -43,20 +47,20 @@ rx = tx_dec+sqrt(noise_pow)*randn(length(tx_dec),1);
 rx = filter(chan,1,rx);
 
 function [syms_I, syms_Q] = qam4(x)
-    syms_I = zeros(1,length(x)/2);
-    syms_Q = zeros(1,length(x)/2);
-    x_I = x(1:2:end);
-    x_Q = x(2:2:end);
-    for ii = 1:length(x)/2
-        if x_Q(ii) == 1
-            syms_Q(ii) = -1;
-        else
-            syms_Q(ii) = 1;
-        end
-        if x_I(ii) == 1
-            syms_I(ii) = -1;
-        else
-            syms_I(ii) = 1;
-        end
+syms_I = zeros(1,length(x)/2);
+syms_Q = zeros(1,length(x)/2);
+x_I = x(1:2:end);
+x_Q = x(2:2:end);
+for ii = 1:length(x)/2
+    if x_Q(ii) == 1
+        syms_Q(ii) = -1;
+    else
+        syms_Q(ii) = 1;
     end
+    if x_I(ii) == 1
+        syms_I(ii) = -1;
+    else
+        syms_I(ii) = 1;
+    end
+end
 end

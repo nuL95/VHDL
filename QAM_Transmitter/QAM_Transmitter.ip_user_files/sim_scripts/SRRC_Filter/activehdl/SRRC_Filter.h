@@ -71,10 +71,10 @@
 // num_channels: 1
 // num_paths: 1
 // data_width: 16
-// data_fract_width: 6
+// data_fract_width: 13
 // output_rounding_mode: 1
 // output_width: 18
-// output_fract_width: 6
+// output_fract_width: 13
 // config_method: 0
 
 const double SRRC_Filter_coefficients[49] = {-0.002381,0.001561,0.005061,0.006136,0.003788,-0.001238,-0.006478,-0.008680,-0.005393,0.003466,0.014849,0.023175,0.022341,0.008566,-0.017014,-0.047172,-0.069629,-0.070318,-0.038042,0.031020,0.130601,0.244615,0.350652,0.425779,0.452923,0.425779,0.350652,0.244615,0.130601,0.031020,-0.038042,-0.070318,-0.069629,-0.047172,-0.017014,0.008566,0.022341,0.023175,0.014849,0.003466,-0.005393,-0.008680,-0.006478,-0.001238,0.003788,0.006136,0.005061,0.001561,-0.002381};
@@ -103,10 +103,10 @@ static xip_fir_v7_2_config gen_SRRC_Filter_config() {
   config.init_pattern        = SRRC_Filter_chanpats[0];
   config.num_paths           = 1;
   config.data_width          = 16;
-  config.data_fract_width    = 6;
+  config.data_fract_width    = 13;
   config.output_rounding_mode= XIP_FIR_TRUNCATE_LSBS;
   config.output_width        = 18;
-  config.output_fract_width  = 6,
+  config.output_fract_width  = 13,
   config.config_method       = XIP_FIR_CONFIG_SINGLE;
   return config;
 }

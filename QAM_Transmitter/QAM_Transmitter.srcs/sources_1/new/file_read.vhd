@@ -78,14 +78,14 @@ begin
                         read(row, data_in(0));
                     end if;
                     if data_in(0) = '0' then
-                        data_out_Q <= "0000000001000000"; --this is the integer 1 in the specified 16-bit format
+                        data_out_Q <= "0010000000000000"; --this is the integer 1 in the specified 16-bit format
                     else
-                        data_out_Q <= "1111111111000000"; --this is the integer -1 in the specified 16-bit format
+                        data_out_Q <= "1110000000000000"; --this is the integer -1 in the specified 16-bit format
                     end if;
                     if data_in(1) = '0' then
-                        data_out_I <="0000000001000000" ;
+                        data_out_I <="0010000000000000" ;
                     else
-                        data_out_I <= "1111111111000000";
+                        data_out_I <= "1110000000000000";
                     end if;
                     if endfile(source_file) then
                         status <= IDLE;

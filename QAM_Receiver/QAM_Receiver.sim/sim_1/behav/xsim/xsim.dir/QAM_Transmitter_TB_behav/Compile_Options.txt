@@ -1,0 +1,1 @@
+--incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "secureip" --snapshot "QAM_Transmitter_TB_behav" "xil_defaultlib.QAM_Transmitter_TB" -log "elaborate.log" 

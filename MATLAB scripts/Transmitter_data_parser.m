@@ -1,4 +1,8 @@
-fid=fopen('tx_dat.txt');
+%%Author: Mark Blair
+%Takes output from VHDL Transmitter which is signed fixed binary 32 bit with a
+%binary point of 20 and puts it into decimal form
+
+fid=fopen('tx_dat_v2.txt');
 f=textscan(fid,'%s', 'delimiter','\n');
 fclose(fid);
 tx = cell2mat(f{:});
@@ -32,7 +36,7 @@ function y = posconvert(x)
 cum = 0;
 x = fliplr(x);
 for ii = 1:31
-    cum = cum + x(ii)*2^(ii-14);
+    cum = cum + x(ii)*2^(ii-21);
 end
 y = cum;
 end

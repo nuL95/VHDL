@@ -87,7 +87,7 @@ set_property ip_output_repo c:/Users/Mark/Desktop/review/VHDL/QAM_Transmitter/QA
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_ip -quiet c:/Users/Mark/Desktop/review/VHDL/QAM_Transmitter/QAM_Transmitter.srcs/sources_1/ip/SRRC_Filter/SRRC_Filter.xci
+read_ip -quiet C:/Users/Mark/Desktop/review/VHDL/QAM_Transmitter/QAM_Transmitter.srcs/sources_1/ip/SRRC_Filter/SRRC_Filter.xci
 set_property used_in_implementation false [get_files -all c:/Users/Mark/Desktop/review/VHDL/QAM_Transmitter/QAM_Transmitter.gen/sources_1/ip/SRRC_Filter/constraints/fir_compiler_v7_2.xdc]
 set_property used_in_implementation false [get_files -all c:/Users/Mark/Desktop/review/VHDL/QAM_Transmitter/QAM_Transmitter.gen/sources_1/ip/SRRC_Filter/SRRC_Filter_ooc.xdc]
 

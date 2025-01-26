@@ -1,0 +1,4 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Mark/Desktop/review/VHDL/QAM_Transmitter/QAM_Transmitter.gen/sources_1/ip/SRRC_Filter/sim/SRRC_Filter.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'SRRC_Filter'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Mark/Desktop/review/VHDL/QAM_Transmitter/QAM_Transmitter.srcs/sources_1/new/file_read.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'file_read'

@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../feedback_system_example.srcs/sources_1/new/fb_sys.vhd" \
+"../../../../feedback_system_example.srcs/sim_1/new/fb_sys_tb.vhd" \
+
+# Do not sort compile order
+nosort

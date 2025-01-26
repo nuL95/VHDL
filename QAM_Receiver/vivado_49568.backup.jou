@@ -1,0 +1,38 @@
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Sat Jan 25 09:33:20 2025
+# Process ID: 49568
+# Current directory: C:/Users/Mark/Desktop/review/VHDL/QAM_Receiver
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent44692 C:\Users\Mark\Desktop\review\VHDL\QAM_Receiver\QAM_Receiver.xpr
+# Log file: C:/Users/Mark/Desktop/review/VHDL/QAM_Receiver/vivado.log
+# Journal file: C:/Users/Mark/Desktop/review/VHDL/QAM_Receiver\vivado.jou
+# Running On: DESKTOP-IIQHOR6, OS: Windows, CPU Frequency: 3800 MHz, CPU Physical cores: 16, Host memory: 34282 MB
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/Mark/Desktop/review/VHDL/QAM_Receiver/QAM_Receiver.xpr
+update_compile_order -fileset sources_1
+launch_simulation
+source QAM_Transmitter_TB.tcl
+create_project QAM_Rec C:/Users/Mark/Desktop/review/VHDL/QAM_Rec -part xc7k70tfbv676-1
+set_property target_language VHDL [current_project]
+file mkdir C:/Users/Mark/Desktop/review/VHDL/QAM_Rec/QAM_Rec.srcs/sim_1/new
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+close [ open C:/Users/Mark/Desktop/review/VHDL/QAM_Rec/QAM_Rec.srcs/sim_1/new/QAM_rec_tb.vhd w ]
+add_files -fileset sim_1 C:/Users/Mark/Desktop/review/VHDL/QAM_Rec/QAM_Rec.srcs/sim_1/new/QAM_rec_tb.vhd
+current_project QAM_Receiver
+current_project QAM_Rec
+launch_simulation
+current_project QAM_Receiver
+close_sim
+close_project
+launch_simulation
+source QAM_Transmitter_TB.tcl
+close_sim
+launch_simulation
+source QAM_Transmitter_TB.tcl
+close_sim
+launch_simulation
+source QAM_Transmitter_TB.tcl
+close_sim
