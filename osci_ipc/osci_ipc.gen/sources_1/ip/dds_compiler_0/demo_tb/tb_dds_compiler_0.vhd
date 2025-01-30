@@ -92,11 +92,8 @@ architecture tb of tb_dds_compiler_0 is
 
   -- Data master channel signals
   signal m_axis_data_tvalid              : std_logic := '0';  -- payload is valid
-  signal m_axis_data_tdata               : std_logic_vector(15 downto 0) := (others => '0');  -- data payload
-
-  -- Phase master channel signals
-  signal m_axis_phase_tvalid             : std_logic := '0';  -- payload is valid
-  signal m_axis_phase_tdata              : std_logic_vector(31 downto 0) := (others => '0');  -- data payload
+  signal m_axis_data_tready              : std_logic := '1';  -- slave is ready
+  signal m_axis_data_tdata               : std_logic_vector(7 downto 0) := (others => '0');  -- data payload
 
   -----------------------------------------------------------------------
   -- Aliases for AXI channel TDATA and TUSER fields
@@ -107,10 +104,6 @@ architecture tb of tb_dds_compiler_0 is
 
   -- Data master channel alias signals
   signal m_axis_data_tdata_cosine      : std_logic_vector(7 downto 0) := (others => '0');
-  signal m_axis_data_tdata_sine        : std_logic_vector(7 downto 0) := (others => '0');
-
-  -- Phase master channel alias signals
-  signal m_axis_phase_tdata_phase      : std_logic_vector(27 downto 0) := (others => '0');
 
 
   signal end_of_simulation : boolean := false;
@@ -125,9 +118,8 @@ begin
     port map (
       aclk                            => aclk
       ,m_axis_data_tvalid              => m_axis_data_tvalid
+      ,m_axis_data_tready              => m_axis_data_tready
       ,m_axis_data_tdata               => m_axis_data_tdata
-      ,m_axis_phase_tvalid             => m_axis_phase_tvalid
-      ,m_axis_phase_tdata              => m_axis_phase_tdata
       );
 
   -----------------------------------------------------------------------
@@ -162,7 +154,13 @@ begin
     wait for T_HOLD;
 
     -- Run for long enough to produce 5 periods of outputs
-    wait for CLOCK_PERIOD * 51;
+    wait for CLOCK_PERIOD * 101;
+
+    -- Apply backpressure by deasserting TREADY
+    m_axis_data_tready <= '0';  -- apply backpressure on data master channel
+    wait for CLOCK_PERIOD * 10;
+    m_axis_data_tready <= '1';
+    wait for CLOCK_PERIOD * 20;
 
     -- End of test
     end_of_simulation <= true;           
@@ -177,6 +175,10 @@ begin
 
   check_outputs : process
     variable check_ok : boolean := true;
+    -- Previous values of data master channel signals
+    variable m_data_tvalid_prev : std_logic := '0';
+    variable m_data_tready_prev : std_logic := '0';
+    variable m_data_tdata_prev  : std_logic_vector(7 downto 0) := (others => '0');
   begin
 
     -- Check outputs T_STROBE time after rising edge of clock
@@ -185,8 +187,9 @@ begin
 
     -- Do not check the output payload values, as this requires the behavioral model
     -- which would make this demonstration testbench unwieldy.
-    -- Instead, check the protocol of the data and phase master channels:
+    -- Instead, check the protocol of the data master channel:
     -- check that the payload is valid (not X) when TVALID is high
+    -- and check that the payload does not change while TVALID is high until TREADY goes high
 
     if m_axis_data_tvalid = '1' then
       if is_x(m_axis_data_tdata) then
@@ -194,18 +197,24 @@ begin
         check_ok := false;
       end if;
 
-    end if;
-
-    if m_axis_phase_tvalid = '1' then
-      if is_x(m_axis_phase_tdata) then
-        report "ERROR: m_axis_phase_tdata is invalid when m_axis_phase_tvalid is high" severity error;
-        check_ok := false;
+      if m_data_tvalid_prev = '1' and m_data_tready_prev = '0' then  -- payload must be the same as last cycle
+        if m_axis_data_tdata /= m_data_tdata_prev then
+          report "ERROR: m_axis_data_tdata changed while m_axis_data_tvalid was high and m_axis_data_tready was low" severity error;
+          check_ok := false;
+        end if;
       end if;
 
     end if;
 
     assert check_ok
       report "ERROR: terminating test with failures." severity failure;
+
+    -- Record payload values for checking next clock cycle
+    if check_ok then
+      m_data_tvalid_prev  := m_axis_data_tvalid;
+      m_data_tready_prev  := m_axis_data_tready;
+      m_data_tdata_prev   := m_axis_data_tdata;
+    end if;
 
   end process check_outputs;
 
@@ -215,10 +224,6 @@ begin
 
   -- Data master channel alias signals: update these only when they are valid
   m_axis_data_tdata_cosine      <= m_axis_data_tdata(7 downto 0) when m_axis_data_tvalid = '1';
-  m_axis_data_tdata_sine        <= m_axis_data_tdata(15 downto 8) when m_axis_data_tvalid = '1';
-
-  -- Phase master channel alias signals: update these only when they are valid
-  m_axis_phase_tdata_phase      <= m_axis_phase_tdata(27 downto 0) when m_axis_phase_tvalid = '1';
 
 end tb;
 

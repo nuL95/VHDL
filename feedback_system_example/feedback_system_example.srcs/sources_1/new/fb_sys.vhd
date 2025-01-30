@@ -1,6 +1,6 @@
 ----------------------------------------------------------------------------------
 -- Company: 
--- Engineer: 
+-- Engineer: Mark Blair
 -- 
 -- Create Date: 01/26/2025 09:38:25 AM
 -- Design Name: 
@@ -8,7 +8,7 @@
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
--- Description: 
+-- Description: Implementation of CIC filter.
 -- 
 -- Dependencies: 
 -- 
@@ -25,24 +25,24 @@ use IEEE.NUMERIC_STD.ALL;
 
 
 entity fb_sys is
-    Port (reset, clk: in std_logic; system_input: in std_logic_vector (15 downto 0);system_output: out std_logic_vector(15 downto 0) );
+    Port (reset, clk: in std_logic; system_input: in std_logic_vector (31 downto 0);system_output: out std_logic_vector(31 downto 0) );
 end fb_sys;
 
 architecture Behavioral of fb_sys is
-    constant gain: signed (15 downto 0):= "0001001100110011";
-    signal system_output_int: std_logic_vector (15 downto 0);
+    type f_regs_type is array (8 downto 0) of signed(31 downto 0);
+    signal f_regs: f_regs_type;
+    signal cic_out: signed (31 downto 0);
 begin
-    system_output <= system_output_int;
+    system_output <=std_logic_vector(cic_out/8);
     process (clk ,reset)
-    variable loop_multi: signed (31 downto 0);
-    variable LM_adjusted: signed (15 downto 0);
+
     begin
         if reset = '1' then
-            system_output_int <= (others => '0');
+            f_regs <= (others =>(others => '0'));
         elsif rising_edge(clk) then
-            loop_multi := gain*signed(system_output_int);
-            LM_adjusted := loop_multi(31) & loop_multi(27 downto 26) & loop_multi(25 downto 13);
-            system_output_int <= std_logic_vector(signed(system_input) - LM_adjusted);
+            f_regs <= f_regs(f_regs'high-1 downto 0) & (f_regs(0) + signed(system_input));
+            cic_out <= f_regs(0) - f_regs(f_regs'high);
+
         end if;
     end process;
 end Behavioral;

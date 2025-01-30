@@ -2,10 +2,10 @@
 # Vivado v2021.2 (64-bit)
 # SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
 # IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
-# Start of session at: Fri Jan 17 10:48:00 2025
-# Process ID: 9724
+# Start of session at: Wed Jan 29 10:22:31 2025
+# Process ID: 24648
 # Current directory: C:/Users/Mark/Desktop/review/VHDL/osci_ipc
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent7340 C:\Users\Mark\Desktop\review\VHDL\osci_ipc\osci_ipc.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent24132 C:\Users\Mark\Desktop\review\VHDL\osci_ipc\osci_ipc.xpr
 # Log file: C:/Users/Mark/Desktop/review/VHDL/osci_ipc/vivado.log
 # Journal file: C:/Users/Mark/Desktop/review/VHDL/osci_ipc\vivado.jou
 # Running On: DESKTOP-IIQHOR6, OS: Windows, CPU Frequency: 3800 MHz, CPU Physical cores: 16, Host memory: 34282 MB
@@ -13,23 +13,273 @@
 start_gui
 open_project C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.xpr
 update_compile_order -fileset sources_1
-launch_simulation
-source osci_ipc_tb.tcl
-export_ip_user_files -of_objects  [get_files C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.srcs/sources_1/ip/dds_compiler_0/dds_compiler_0.xci] -no_script -reset -force -quiet
-remove_files  -fileset dds_compiler_0 C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.srcs/sources_1/ip/dds_compiler_0/dds_compiler_0.xci
-file delete -force C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.srcs/sources_1/ip/dds_compiler_0
-file delete -force c:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.gen/sources_1/ip/dds_compiler_0
-create_ip -name dds_compiler -vendor xilinx.com -library ip -version 6.0 -module_name dds_compiler_0
-set_property -dict [list CONFIG.Parameter_Entry {System_Parameters} CONFIG.Output_Frequency1 {10} CONFIG.Frequency_Resolution {0.4} CONFIG.Noise_Shaping {Auto} CONFIG.Phase_Width {28} CONFIG.Output_Width {8} CONFIG.PINC1 {1100110011001100110011001}] [get_ips dds_compiler_0]
-generate_target {instantiation_template} [get_files c:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.srcs/sources_1/ip/dds_compiler_0/dds_compiler_0.xci]
-generate_target all [get_files  c:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.srcs/sources_1/ip/dds_compiler_0/dds_compiler_0.xci]
+set_property -dict [list CONFIG.Parameter_Entry {System_Parameters} CONFIG.Phase_Increment {Fixed} CONFIG.Phase_offset {Streaming} CONFIG.Negative_Sine {true} CONFIG.Has_Phase_Out {false} CONFIG.Has_TREADY {true} CONFIG.Has_ARESETn {true} CONFIG.Has_ACLKEN {true} CONFIG.Output_Frequency1 {20} CONFIG.Frequency_Resolution {0.4} CONFIG.Noise_Shaping {Auto} CONFIG.Phase_Width {28} CONFIG.Output_Width {8} CONFIG.DATA_Has_TLAST {Not_Required} CONFIG.S_PHASE_Has_TUSER {Not_Required} CONFIG.M_DATA_Has_TUSER {Not_Required} CONFIG.Latency {10} CONFIG.PINC1 {11001100110011001100110011}] [get_ips dds_compiler_0]
+generate_target all [get_files  C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.srcs/sources_1/ip/dds_compiler_0/dds_compiler_0.xci]
 catch { config_ip_cache -export [get_ips -all dds_compiler_0] }
-export_ip_user_files -of_objects [get_files c:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.srcs/sources_1/ip/dds_compiler_0/dds_compiler_0.xci] -no_script -sync -force -quiet
-create_ip_run [get_files -of_objects [get_fileset sources_1] c:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.srcs/sources_1/ip/dds_compiler_0/dds_compiler_0.xci]
+export_ip_user_files -of_objects [get_files C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.srcs/sources_1/ip/dds_compiler_0/dds_compiler_0.xci] -no_script -sync -force -quiet
+reset_run dds_compiler_0_synth_1
 launch_runs dds_compiler_0_synth_1 -jobs 8
 wait_on_run dds_compiler_0_synth_1
-export_simulation -of_objects [get_files c:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.srcs/sources_1/ip/dds_compiler_0/dds_compiler_0.xci] -directory C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.ip_user_files -ipstatic_source_dir C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.cache/compile_simlib/modelsim} {questa=C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.cache/compile_simlib/questa} {riviera=C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.cache/compile_simlib/riviera} {activehdl=C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
-close_sim
+export_simulation -of_objects [get_files C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.srcs/sources_1/ip/dds_compiler_0/dds_compiler_0.xci] -directory C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.ip_user_files -ipstatic_source_dir C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.cache/compile_simlib/modelsim} {questa=C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.cache/compile_simlib/questa} {riviera=C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.cache/compile_simlib/riviera} {activehdl=C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
 launch_simulation
 source osci_ipc_tb.tcl
+set_property -dict [list CONFIG.Output_Frequency1 {5} CONFIG.PINC1 {110011001100110011001100}] [get_ips dds_compiler_0]
+generate_target all [get_files  C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.srcs/sources_1/ip/dds_compiler_0/dds_compiler_0.xci]
+catch { config_ip_cache -export [get_ips -all dds_compiler_0] }
+export_ip_user_files -of_objects [get_files C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.srcs/sources_1/ip/dds_compiler_0/dds_compiler_0.xci] -no_script -sync -force -quiet
+reset_run dds_compiler_0_synth_1
+launch_runs dds_compiler_0_synth_1 -jobs 8
+wait_on_run dds_compiler_0_synth_1
+export_simulation -of_objects [get_files C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.srcs/sources_1/ip/dds_compiler_0/dds_compiler_0.xci] -directory C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.ip_user_files -ipstatic_source_dir C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.cache/compile_simlib/modelsim} {questa=C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.cache/compile_simlib/questa} {riviera=C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.cache/compile_simlib/riviera} {activehdl=C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+save_wave_config {C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg}
+add_files -fileset sim_1 -norecurse C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+set_property xsim.view C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg [get_filesets sim_1]
 close_sim
+launch_simulation
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+set_property -name {xsim.simulate.runtime} -value {3000ns} -objects [get_filesets sim_1]
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+save_wave_config {C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+save_wave_config {C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg}
+close_sim
+launch_simulation
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+set_property -dict [list CONFIG.Channels {1} CONFIG.Output_Frequency2 {0} CONFIG.Frequency_Resolution {0.4} CONFIG.Noise_Shaping {Auto} CONFIG.Phase_Width {28} CONFIG.Output_Width {8} CONFIG.DATA_Has_TLAST {Not_Required} CONFIG.S_PHASE_Has_TUSER {Not_Required} CONFIG.M_DATA_Has_TUSER {Not_Required} CONFIG.M_PHASE_Has_TUSER {Not_Required} CONFIG.Output_Frequency1 {5} CONFIG.PINC1 {110011001100110011001100} CONFIG.PINC2 {0}] [get_ips dds_compiler_0]
+copy_ip -name PLL_NCO -dir c:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.srcs/sources_1/ip [get_ips  dds_compiler_0]
+set_property -dict [list CONFIG.Phase_offset {Fixed} CONFIG.Output_Selection {Cosine} CONFIG.Negative_Sine {false} CONFIG.Has_ARESETn {false} CONFIG.Has_ACLKEN {false} CONFIG.Phase_Offset_Angles1 {0.3} CONFIG.DATA_Has_TLAST {Not_Required} CONFIG.S_PHASE_Has_TUSER {Not_Required} CONFIG.Latency {6} CONFIG.POFF1 {100110011001100110011001100}] [get_ips dds_compiler_0]
+generate_target all [get_files  C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.srcs/sources_1/ip/dds_compiler_0/dds_compiler_0.xci]
+catch { config_ip_cache -export [get_ips -all dds_compiler_0] }
+export_ip_user_files -of_objects [get_files C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.srcs/sources_1/ip/dds_compiler_0/dds_compiler_0.xci] -no_script -sync -force -quiet
+reset_run dds_compiler_0_synth_1
+launch_runs dds_compiler_0_synth_1 -jobs 8
+wait_on_run dds_compiler_0_synth_1
+export_simulation -of_objects [get_files C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.srcs/sources_1/ip/dds_compiler_0/dds_compiler_0.xci] -directory C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.ip_user_files -ipstatic_source_dir C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.cache/compile_simlib/modelsim} {questa=C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.cache/compile_simlib/questa} {riviera=C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.cache/compile_simlib/riviera} {activehdl=C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+close_sim
+launch_simulation
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+current_wave_config {osci_ipc_tb_behav.wcfg}
+add_wave {{/osci_ipc_tb/m_axis_rx_tvalid}} 
+current_wave_config {osci_ipc_tb_behav.wcfg}
+add_wave {{/osci_ipc_tb/m_axis_rx_tdata}} 
+save_wave_config {C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+file mkdir C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.srcs/sources_1/new
+close [ open C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.srcs/sources_1/new/costas_loop.vhd w ]
+add_files C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.srcs/sources_1/new/costas_loop.vhd
+set_property -dict [list CONFIG.Output_Selection {Sine_and_Cosine} CONFIG.Negative_Sine {false}] [get_ips PLL_NCO]
+generate_target all [get_files  c:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.srcs/sources_1/ip/PLL_NCO/PLL_NCO.xci]
+catch { config_ip_cache -export [get_ips -all PLL_NCO] }
+export_ip_user_files -of_objects [get_files c:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.srcs/sources_1/ip/PLL_NCO/PLL_NCO.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] c:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.srcs/sources_1/ip/PLL_NCO/PLL_NCO.xci]
+launch_runs PLL_NCO_synth_1 -jobs 8
+wait_on_run PLL_NCO_synth_1
+export_simulation -of_objects [get_files c:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.srcs/sources_1/ip/PLL_NCO/PLL_NCO.xci] -directory C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.ip_user_files -ipstatic_source_dir C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.cache/compile_simlib/modelsim} {questa=C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.cache/compile_simlib/questa} {riviera=C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.cache/compile_simlib/riviera} {activehdl=C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+save_wave_config {C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+current_wave_config {osci_ipc_tb_behav.wcfg}
+add_wave {{/osci_ipc_tb/aclk}} {{/osci_ipc_tb/rstn}} {{/osci_ipc_tb/m_axis_rx_tvalid}} {{/osci_ipc_tb/m_axis_rx_tdata}} {{/osci_ipc_tb/m_axis_rx_tready}} {{/osci_ipc_tb/m_axis_CL_tvalid}} {{/osci_ipc_tb/m_axis_CL_tready}} {{/osci_ipc_tb/m_axis_CL_tdata}} {{/osci_ipc_tb/debug_phase}} {{/osci_ipc_tb/cosine_out}} 
+save_wave_config {C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+save_wave_config {C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+save_wave_config {C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+set_property -dict [list CONFIG.Phase_Offset_Angles1 {0.5} CONFIG.POFF1 {1000000000000000000000000000}] [get_ips dds_compiler_0]
+generate_target all [get_files  C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.srcs/sources_1/ip/dds_compiler_0/dds_compiler_0.xci]
+catch { config_ip_cache -export [get_ips -all dds_compiler_0] }
+export_ip_user_files -of_objects [get_files C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.srcs/sources_1/ip/dds_compiler_0/dds_compiler_0.xci] -no_script -sync -force -quiet
+reset_run dds_compiler_0_synth_1
+launch_runs dds_compiler_0_synth_1 -jobs 8
+wait_on_run dds_compiler_0_synth_1
+export_simulation -of_objects [get_files C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.srcs/sources_1/ip/dds_compiler_0/dds_compiler_0.xci] -directory C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.ip_user_files -ipstatic_source_dir C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.cache/compile_simlib/modelsim} {questa=C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.cache/compile_simlib/questa} {riviera=C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.cache/compile_simlib/riviera} {activehdl=C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+close_sim
+launch_simulation
+launch_simulation
+reset_run dds_compiler_0_synth_1
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+set_property -dict [list CONFIG.Phase_Offset_Angles1 {0.2} CONFIG.POFF1 {11001100110011001100110011}] [get_ips dds_compiler_0]
+generate_target all [get_files  C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.srcs/sources_1/ip/dds_compiler_0/dds_compiler_0.xci]
+catch { config_ip_cache -export [get_ips -all dds_compiler_0] }
+export_ip_user_files -of_objects [get_files C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.srcs/sources_1/ip/dds_compiler_0/dds_compiler_0.xci] -no_script -sync -force -quiet
+launch_runs dds_compiler_0_synth_1 -jobs 8
+wait_on_run dds_compiler_0_synth_1
+export_simulation -of_objects [get_files C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.srcs/sources_1/ip/dds_compiler_0/dds_compiler_0.xci] -directory C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.ip_user_files/sim_scripts -ip_user_files_dir C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.ip_user_files -ipstatic_source_dir C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.ip_user_files/ipstatic -lib_map_path [list {modelsim=C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.cache/compile_simlib/modelsim} {questa=C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.cache/compile_simlib/questa} {riviera=C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.cache/compile_simlib/riviera} {activehdl=C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+close_sim
+launch_simulation
+launch_simulation
+reset_run dds_compiler_0_synth_1
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+save_wave_config {C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+save_wave_config {C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+step
+step
+close_sim
+launch_simulation
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+close_sim
+launch_simulation
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+save_wave_config {C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+save_wave_config {C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+save_wave_config {C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+save_wave_config {C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+run 10 us
+relaunch_sim
+step
+step
+step
+step
+step
+step
+step
+step
+step
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+current_wave_config {osci_ipc_tb_behav.wcfg}
+add_wave {{/osci_ipc_tb/debug_mult_out}} 
+save_wave_config {C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+save_wave_config {C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg}
+set_property -name {xsim.simulate.log_all_signals} -value {true} -objects [get_filesets sim_1]
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl

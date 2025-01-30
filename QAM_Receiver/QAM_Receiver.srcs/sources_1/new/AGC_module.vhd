@@ -34,7 +34,8 @@ end AGC;
 architecture Behavioral of AGC is
     --constant step: integer := 4;
     constant a_ref: signed (31 downto 0):= "00000000010000000000000000000000"; -- 0.0625
-
+    type f_regs_type is array (8 downto 0) of signed( 63 downto 0);
+    signal f_regs: f_regs_type;
     type t_state is (IDLE,ACTIVE);
     signal status: t_state;
 
@@ -43,7 +44,7 @@ architecture Behavioral of AGC is
 begin
     --m_axis_data_tdata <= std_logic_vector(int_test(31 downto 16));
     process (clk)
-    variable ys_sq_int : signed (63 downto 0);
+    variable cic_out : signed (63 downto 0);
     variable error: signed (31 downto 0);
     variable agc_temp: signed (47 downto 0);
     begin
@@ -52,6 +53,7 @@ begin
             s_axis_data_tready <= '0';
             m_axis_data_tvalid <= '0';
             AGC_out <= (others => '0');
+            f_regs <= (others => (others =>'0'));
             status <= IDLE;
         elsif rising_edge(clk) then
             case (status) is
@@ -65,8 +67,9 @@ begin
                     m_axis_data_tvalid <= '1';
                     agc_temp := signed(s_axis_data_tdata) * gain_acum;
                     AGC_out <= agc_temp(47) & agc_temp(43 downto 13);
-                    ys_sq_int := AGC_out*AGC_out;
-                    error := (a_ref - (ys_sq_int(63) & ys_sq_int(56 downto 26)))/16;
+                    f_regs <= f_regs(f_regs'high-1 downto 0) & ((AGC_out*AGC_out)+f_regs(0));
+                    cic_out := (f_regs(0) - f_regs(f_regs'high))/8;
+                    error := (a_ref - (cic_out(cic_out'high) & cic_out(56 downto 26)))/16;
                     gain_acum <= gain_acum + error;
                     m_axis_data_tdata <= std_logic_vector(AGC_out(31) & AGC_out(27 downto 13));
                     if s_axis_data_tvalid = '0' or m_axis_data_tready = '0' then

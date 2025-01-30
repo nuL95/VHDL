@@ -1,7 +1,0 @@
-Running: xsim.dir/osci_ipc_tb_behav/xsimk.exe -simmode gui -wdb osci_ipc_tb_behav.wdb -simrunnum 0 -socket 58051
-Design successfully loaded
-Design Loading Memory Usage: 7868 KB (Peak: 7868 KB)
-Design Loading CPU Usage: 15 ms
-Simulation completed
-Simulation Memory Usage: 8448 KB (Peak: 8448 KB)
-Simulation CPU Usage: 15 ms

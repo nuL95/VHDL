@@ -56,9 +56,8 @@ COMPONENT dds_compiler_0
   PORT (
     aclk : IN STD_LOGIC;
     m_axis_data_tvalid : OUT STD_LOGIC;
-    m_axis_data_tdata : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-    m_axis_phase_tvalid : OUT STD_LOGIC;
-    m_axis_phase_tdata : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
+    m_axis_data_tready : IN STD_LOGIC;
+    m_axis_data_tdata : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
   );
 END COMPONENT;
 -- COMP_TAG_END ------ End COMPONENT Declaration ------------
@@ -71,9 +70,8 @@ your_instance_name : dds_compiler_0
   PORT MAP (
     aclk => aclk,
     m_axis_data_tvalid => m_axis_data_tvalid,
-    m_axis_data_tdata => m_axis_data_tdata,
-    m_axis_phase_tvalid => m_axis_phase_tvalid,
-    m_axis_phase_tdata => m_axis_phase_tdata
+    m_axis_data_tready => m_axis_data_tready,
+    m_axis_data_tdata => m_axis_data_tdata
   );
 -- INST_TAG_END ------ End INSTANTIATION Template ---------
 

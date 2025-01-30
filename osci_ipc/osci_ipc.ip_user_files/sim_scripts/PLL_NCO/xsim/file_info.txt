@@ -1,0 +1,1 @@
+PLL_NCO.vhd,vhdl,xil_defaultlib,../../../../osci_ipc.gen/sources_1/ip/PLL_NCO/sim/PLL_NCO.vhd,

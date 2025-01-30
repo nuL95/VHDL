@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Wed Jan 29 13:18:33 2025
+# Process ID: 29772
+# Current directory: C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.runs/PLL_NCO_synth_1
+# Command line: vivado.exe -log PLL_NCO.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source PLL_NCO.tcl
+# Log file: C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.runs/PLL_NCO_synth_1/PLL_NCO.vds
+# Journal file: C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc.runs/PLL_NCO_synth_1\vivado.jou
+# Running On: DESKTOP-IIQHOR6, OS: Windows, CPU Frequency: 3800 MHz, CPU Physical cores: 16, Host memory: 34282 MB
+#-----------------------------------------------------------
+source PLL_NCO.tcl -notrace

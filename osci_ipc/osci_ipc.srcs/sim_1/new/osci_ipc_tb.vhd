@@ -22,6 +22,8 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.numeric_std.all;
+use STD.textio.all;
+use IEEE.std_logic_textio.all;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -33,33 +35,76 @@ use IEEE.numeric_std.all;
 --use UNISIM.VComponents.all;
 
 entity osci_ipc_tb is
---  Port ( );
+    --  Port ( );
 end osci_ipc_tb;
 
 architecture Behavioral of osci_ipc_tb is
-signal clk : std_logic := '0';
-signal    m_axis_data_tvalid : STD_LOGIC;
-signal    m_axis_data_tdata : STD_LOGIC_VECTOR(15 DOWNTO 0);
-signal    m_axis_phase_tvalid : STD_LOGIC;
-signal    m_axis_phase_tdata : STD_LOGIC_VECTOR(31 DOWNTO 0);
-component dds_compiler_0
-  PORT (
-    aclk : IN STD_LOGIC;
-    m_axis_data_tvalid : OUT STD_LOGIC;
-    m_axis_data_tdata : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-    m_axis_phase_tvalid : OUT STD_LOGIC;
-    m_axis_phase_tdata : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
-  );
-end component;
-begin
-oscillator: dds_compiler_0 port map(aclk => clk, m_axis_data_tvalid=>m_axis_data_tvalid,m_axis_data_tdata=>m_axis_data_tdata,m_axis_phase_tvalid=>m_axis_phase_tvalid, m_axis_phase_tdata=>m_axis_phase_tdata );
+    --control signals
+    signal aclk : std_logic := '0';
+    signal rstn : std_logic := '0';
 
-dut: process
+    --rx signals
+    signal    m_axis_rx_tvalid : STD_LOGIC;
+    signal    m_axis_rx_tdata : STD_LOGIC_VECTOR(7 DOWNTO 0);
+    signal    m_axis_rx_tready : STD_LOGIC;
+
+    --costas loop signals
+    signal m_axis_CL_tvalid: std_logic;
+    signal m_axis_CL_tready: std_logic := '1';
+    signal m_axis_CL_tdata: std_logic_vector (7 downto 0);
+    signal debug_phase: std_logic_vector (31 downto 0);
+    signal debug_mult_out: std_logic_vector (27 downto 0);
+
+    component costas_loop
+        Port (aclk, rstn: in std_logic;
+             s_axis_data_tvalid: in std_logic;
+             s_axis_data_tready: out std_logic;
+             s_axis_data_tdata: in std_logic_vector (7 downto 0);
+             m_axis_data_tvalid: out std_logic;
+             m_axis_data_tready: in std_logic;
+             m_axis_data_tdata: out std_logic_vector(7 downto 0);
+             debug_phase_out: out std_logic_vector (31 downto 0);
+             debug_mult_out: out std_logic_vector(27 downto 0)
+            );
+    end component;
+    COMPONENT dds_compiler_0
+        PORT (
+            aclk : IN STD_LOGIC;
+            m_axis_data_tvalid : OUT STD_LOGIC;
+            m_axis_data_tready : IN STD_LOGIC;
+            m_axis_data_tdata : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+        );
+    END COMPONENT;
 begin
-wait for 1000 ns;
-end process;
-process(clk)
-begin
-clk <= not clk after 5 ns;
-end process;
+    costas_loop_DUT: costas_loop port map(aclk => aclk, rstn => rstn,
+                 s_axis_data_tvalid => m_axis_rx_tvalid, s_axis_data_tready => m_axis_rx_tready, s_axis_data_tdata => m_axis_rx_tdata,
+                 m_axis_data_tvalid => m_axis_CL_tvalid, m_axis_data_tready => m_axis_CL_tready, m_axis_data_tdata => m_axis_CL_tdata, debug_phase_out => debug_phase, debug_mult_out => debug_mult_out
+                );
+    dds_dut : dds_compiler_0
+        PORT MAP (
+            aclk => aclk,
+            m_axis_data_tvalid => m_axis_rx_tvalid,
+            m_axis_data_tready => m_axis_rx_tready,
+            m_axis_data_tdata => m_axis_rx_tdata
+        );
+    dut: process
+    begin
+        wait for 4 ns;
+        rstn <= '1';
+        wait for 3000 ns;
+    end process;
+    file_Writing: process(aclk)
+        file source_file : text open write_mode is
+ "error.txt";
+        variable row : line;
+    begin
+        if rising_edge(aclk) then
+            write(row, debug_mult_out, right, 32);
+            writeline(source_file, row);
+        end if;
+    end process;
+    process(aclk)
+    begin
+        aclk <= not aclk after 2 ns;
+    end process;
 end Behavioral;

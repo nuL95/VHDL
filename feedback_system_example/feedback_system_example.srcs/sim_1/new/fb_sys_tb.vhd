@@ -28,12 +28,12 @@ entity fb_sys_tb is
 end fb_sys_tb;
 
 architecture Behavioral of fb_sys_tb is
-signal x: std_logic_vector(15 downto 0);
-signal y: std_logic_vector (15 downto 0);
+signal x: std_logic_vector(31 downto 0);
+signal y: std_logic_vector (31 downto 0);
 signal clk, rst: std_logic := '0';
 
 component fb_sys
-    Port (reset, clk: in std_logic; system_input: in std_logic_vector (15 downto 0);system_output: out std_logic_vector(15 downto 0) );
+    Port (reset, clk: in std_logic; system_input: in std_logic_vector (31 downto 0);system_output: out std_logic_vector(31 downto 0) );
 end component;
 begin
 fb_sys_dut: fb_sys port map (reset => rst, clk => clk, system_input => x, system_output => y);
@@ -43,7 +43,7 @@ begin
 rst <= '1';
 wait for 10 ns;
 rst <= '0';
-x <= "0010000000000000";
+x <= "00000100000000000000000000000000";
 wait for 500 ns;
 
 

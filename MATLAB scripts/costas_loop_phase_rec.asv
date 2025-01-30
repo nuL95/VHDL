@@ -1,0 +1,51 @@
+close all;
+clear;
+
+fs = 100e6;
+fc = 5e6;
+N = 300;
+t = 0:1/fs:N/fs-1/fs;
+phi = 1.257;
+f_off = 0;
+tx = fi(cos(2*pi*(fc+f_off)*t+phi), 1, 8, 7);
+
+
+%% LPF
+theta1 = fi(zeros(1,N), 1, 31, 28);
+theta2 = fi(zeros(1,N), 1, 31, 28);
+mu1 = 1/32;
+mu2 = 0.01;
+for k = 1:N
+    f1in = tx(k)*2*cos(2*pi*fc*t(k));
+    f2in = tx(k)*2*sin(2*pi*fc*t(k));
+    %     f3in = tx(k)*2*cos(2*pi*fc*t(k)+theta1(k)+theta2(k));
+    %     f4in = tx(k)*2*sin(2*pi*fc*t(k)+theta1(k)+theta2(k));
+
+    error1 = (f1in)*(f2in);
+    %     error2 = (fliplr(h)*f3p')*(fliplr(h)*f4p');
+
+    theta1(k+1) = theta1(k) - mu1 * error1;
+    %     theta2(k+1) = theta2(k) - mu2 * error2;
+
+    car_est(k) = cos(2*pi*fc*t(k)+theta1(k));
+end
+figure(1)
+plot(theta1)
+title('freq')
+% subplot(2,1,2)
+% plot(theta2)
+% title('phase')
+
+% figure(2)
+% subplot(2,1,1)
+% plot(car_est)
+% hold on
+% plot(tx);
+% hold off
+% title('estimated carrier and carrier')
+% subplot(2,1,2)
+% plot((car_est-tx).^2)
+% title('error between estimated carrier and carrier')
+y = fi(1/(2*pi), 0, 31, 28);
+y.bin
+
