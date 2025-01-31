@@ -283,3 +283,114 @@ close_sim
 launch_simulation
 open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
 source osci_ipc_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+save_wave_config {C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+save_wave_config {C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+close_sim
+launch_simulation
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+save_wave_config {C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+save_wave_config {C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg}
+close_sim
+launch_simulation
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl
+save_wave_config {C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config C:/Users/Mark/Desktop/review/VHDL/osci_ipc/osci_ipc_tb_behav.wcfg
+source osci_ipc_tb.tcl

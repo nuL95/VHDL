@@ -32,12 +32,11 @@ entity costas_loop is
          m_axis_data_tready: in std_logic;
          m_axis_data_tdata: out std_logic_vector(7 downto 0);
          debug_phase_out: out std_logic_vector (31 downto 0);
-         debug_mult_out: out std_logic_vector (27 downto 0)
+         debug_mult_out: out std_logic_vector (31 downto 0)
         );
 end costas_loop;
 
 architecture Behavioral of costas_loop is
-    constant inv_2pi: unsigned (30 downto 0) := "0000010100010111110011000001110";
     --NCO Signals
     signal en: std_logic;
     signal s_axis_NCO_tready: std_logic;
@@ -48,27 +47,11 @@ architecture Behavioral of costas_loop is
     signal m_axis_NCO_tdata: std_logic_vector (15 downto 0);
 
     --costas loop signals
-    signal phase_acum: unsigned (27 downto 0);
+    signal phase_acum: signed (31 downto 0);
 
     --state signal
     type t_state is (IDLE, ACTIVE);
     signal status: t_state;
-
-    function word_conv(word_in: signed(31 downto 0))
-    return unsigned is variable word_out: unsigned (27 downto 0);
-        variable bit_prod:  unsigned (61 downto 0);
-        variable abs_x: unsigned(31 downto 0);
-    begin
-        if word_in(word_in'high) = '0' then
-            bit_prod := unsigned(word_in(word_in'high-1 downto 0))*inv_2pi;
-            word_out := bit_prod(58 downto 31);
-        else
-            abs_x := unsigned(abs(word_in));
-            bit_prod := abs_x(abs_x'high-1 downto 0)*inv_2pi;
-            word_out := x"FFFFFFF" - bit_prod(58 downto 31);
-        end if;
-        return word_out;
-    end function;
 
     COMPONENT PLL_NCO
         PORT (
@@ -87,7 +70,7 @@ begin
     CL_NCO: PLL_NCO port map(aclk => aclk, aclken => en, aresetn => rstn, s_axis_phase_tvalid => s_axis_NCO_tvalid, s_axis_phase_tready => s_axis_NCO_tready, s_axis_phase_tdata => s_axis_NCO_tdata,
                  m_axis_data_tvalid => m_axis_NCO_tvalid, m_axis_data_tready => m_axis_NCO_tready, m_axis_data_tdata => m_axis_NCO_tdata);
 
-    m_axis_data_tdata <= m_axis_NCO_tdata(7 downto 0);
+    m_axis_data_tdata <= m_axis_NCO_tdata(15 downto 8);
 
 
     process(aclk, rstn)
@@ -113,11 +96,11 @@ begin
                 when ACTIVE =>
                     en <= '1';
                     m_axis_data_tvalid <= '1';
-                    s_axis_NCO_tdata(27 downto 0) <= std_logic_vector(phase_acum);
-                    multi_out := (signed(s_axis_data_tdata)*signed(m_axis_NCO_tdata(15 downto 8))*signed(s_axis_data_tdata)*signed(m_axis_NCO_tdata(7 downto 0)))/32;
-                    debug_mult_out <= std_logic_vector(word_conv(multi_out)); 
-                    phase_acum <= phase_acum + word_conv(multi_out); --step size is 1/32
-                    debug_phase_out <= std_logic_vector(multi_out);
+                    s_axis_NCO_tdata(27 downto 0) <= std_logic_vector(phase_acum(31 downto 4));
+                    multi_out := (signed(s_axis_data_tdata)*signed(m_axis_NCO_tdata(15 downto 8))*signed(s_axis_data_tdata)*signed(m_axis_NCO_tdata(7 downto 0)));
+                    debug_mult_out <= std_logic_vector(multi_out); 
+                    phase_acum <= phase_acum + multi_out; --step size is 1/32
+                    debug_phase_out <= std_logic_vector(phase_acum);
                     if s_axis_data_tvalid = '0' or m_axis_data_tready = '0' then
                         status <= IDLE;
                     end if;

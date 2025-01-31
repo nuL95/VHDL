@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="PLL_NCO_synth_1" LaunchPart="xc7k70tfbv676-1" LaunchTime="1738185510">
   <File Type="PA-TCL" Name="PLL_NCO.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="PLL_NCO_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="PLL_NCO_reports.tcl"/>
   <File Type="RDS-RDS" Name="PLL_NCO.vds"/>
   <File Type="RDS-UTIL" Name="PLL_NCO_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="PLL_NCO_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="PLL_NCO.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="PLL_NCO_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="PLL_NCO_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/PLL_NCO">
     <File Path="$PSRCDIR/sources_1/ip/PLL_NCO/PLL_NCO.xci">
       <FileInfo>
@@ -42,9 +39,7 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021">
-      <Desc>Vivado Synthesis Defaults</Desc>
-    </StratHandle>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2021"/>
     <Step Id="synth_design"/>
   </Strategy>
 </GenRun>

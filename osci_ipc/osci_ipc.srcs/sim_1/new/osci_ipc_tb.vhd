@@ -53,7 +53,7 @@ architecture Behavioral of osci_ipc_tb is
     signal m_axis_CL_tready: std_logic := '1';
     signal m_axis_CL_tdata: std_logic_vector (7 downto 0);
     signal debug_phase: std_logic_vector (31 downto 0);
-    signal debug_mult_out: std_logic_vector (27 downto 0);
+    signal debug_mult_out: std_logic_vector (31 downto 0);
 
     component costas_loop
         Port (aclk, rstn: in std_logic;
@@ -64,7 +64,7 @@ architecture Behavioral of osci_ipc_tb is
              m_axis_data_tready: in std_logic;
              m_axis_data_tdata: out std_logic_vector(7 downto 0);
              debug_phase_out: out std_logic_vector (31 downto 0);
-             debug_mult_out: out std_logic_vector(27 downto 0)
+             debug_mult_out: out std_logic_vector(31 downto 0)
             );
     end component;
     COMPONENT dds_compiler_0

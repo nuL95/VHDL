@@ -5,32 +5,36 @@ fs = 100e6;
 fc = 5e6;
 N = 730;
 t = 0:1/fs:N/fs-1/fs;
-phi = 5.655;
+phi = 2;
 f_off = 0;
 tx = cos(2*pi*(fc+f_off)*t+phi);
 
 
+[no,fo,mo,wo] = firpmord([2e6 9e6],[1 0], [.01, .1], fs)
+h = firpm(no,fo,mo,wo);
+L = length(h)
 %% LPF
 theta1 = zeros(1,N);
 theta2 = zeros(1,N);
-mu1 = 1/32;
+mu1 = 1/8;
 mu2 = 0.01;
-
+f1 = zeros(1,L);
+f2 = zeros(1,L);
 for k = 1:N
-    cl_cos(k) = cos(2*pi*fc*t(k)+.314);
-    cl_sin(k) = sin(2*pi*fc*t(k)+.314);
+    cl_cos(k) = cos(2*pi*fc*t(k)+theta1(k));
+    cl_sin(k) = sin(2*pi*fc*t(k)+theta1(k));
     f1in = tx(k)*cl_cos(k);
     f2in = tx(k)*cl_sin(k);
+    f1 = [f1(2:end) f1in];
+    f2 = [f2(2:end) f2in];
     %     f3in = tx(k)*2*cos(2*pi*fc*t(k)+theta1(k)+theta2(k));
     %     f4in = tx(k)*2*sin(2*pi*fc*t(k)+theta1(k)+theta2(k));
 
-    error1(k) = (f1in)*(f2in)*mu1;
+    error1(k) = (f1*fliplr(h)')*(f2*fliplr(h)')*mu1;
     %     error2 = (fliplr(h)*f3p')*(fliplr(h)*f4p');
 
     theta1(k+1) = theta1(k) + error1(k);
     %     theta2(k+1) = theta2(k) - mu2 * error2;
-
-    car_est(k) = cos(2*pi*fc*t(k)+theta1(k));
 end
 figure(1)
 plot(theta1)
@@ -49,6 +53,9 @@ title('freq')
 % subplot(2,1,2)
 % plot((car_est-tx).^2)
 % title('error between estimated carrier and carrier')
+
+y = fi(0.0, 0, 28, 28);
+y.bin
 
 
 
@@ -73,7 +80,7 @@ end
 tx_dec = zeros(nRow, 1);
 
 for ii = 1:length(tx_dec)
-        tx_dec(ii) = posconvert(tx_num(ii,1:end));
+    tx_dec(ii) = posconvert(tx_num(ii,1:end));
 end
 
 function y = posconvert(x)
